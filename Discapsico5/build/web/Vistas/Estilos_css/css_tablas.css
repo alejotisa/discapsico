@@ -1,0 +1,60 @@
+
+
+/* Estilo para contenedor de tabla */
+.table-container {
+    max-height: 400px;
+    overflow-y: scroll; /* Agrega una barra de desplazamiento vertical si es necesario */
+}
+
+/* Estilo para el encabezado de la tabla */
+.table-container thead {
+    position: sticky;
+    top: 0;
+    background-color: #0056b3;
+    color: #000; /* Color de texto más suave */
+    z-index: 1;
+}
+
+/* Estilo para la tabla */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+
+thead th {
+    position: sticky;
+    top: 0;
+    background-color: #343a40; /* Cambia esto al color de fondo deseado */
+    color: #ffffff; /* Cambia esto al color de texto deseado */
+}
+
+/* Estilo para las celdas de la tabla */
+td, th {
+    padding: 10px; /* Ajusta el espaciado interno según sea necesario */
+    font-size: 12px; /* Tamaño de fuente más pequeño */
+    background-color: #e9ecef; /* Color de fondo más suave */
+    border: 1px solid #ced4da; /* Borde más suave */
+    text-align: center;
+    color: #000; /* Color de texto más oscuro */
+}
+
+/* Estilo para las celdas de la tabla */
+.tr {
+
+    padding: 0;
+    font-size: 12px;
+    background-color: #f0f0f0;
+    position: sticky;
+    top: 0;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+
+/* Estilo para el encabezado de la tabla */
+thead {
+    background-color: #343a40;
+    color: #ffffff;
+}
