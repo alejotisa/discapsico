@@ -1,0 +1,325 @@
+{
+	"info": {
+		"_postman_id": "bba4ff00-e85b-4ee8-85dc-cd2d5ee77c1f",
+		"name": "Test Inicio de sesion",
+		"description": "Collecion para validar el inicio de sesion",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35022290"
+	},
+	"item": [
+		{
+			"name": "Inicio de sesion OK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Removed redundant test for response content type\r",
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Name of the user is displayed in the welcome message\", function () {\r",
+							"    const responseData = pm.response.text();\r",
+							"    pm.expect(responseData).to.contain(\"mensaje-bienvenida\" )\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "txtEmail",
+							"value": "alejo@gmail.comalejo@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "txtPassword",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "accion",
+							"value": "Ingresar",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/controlador?txtEmail=alejo@gmail.com&txtPassword=123&accion=Ingresar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"controlador"
+					],
+					"query": [
+						{
+							"key": "txtEmail",
+							"value": "alejo@gmail.com"
+						},
+						{
+							"key": "txtPassword",
+							"value": "123"
+						},
+						{
+							"key": "accion",
+							"value": "Ingresar"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sin Correo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Removed redundant test for response content type\r",
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Name of the user is displayed in the welcome message\", function () {\r",
+							"    const responseData = pm.response.text();\r",
+							"    pm.expect(responseData).to.contain(\"No se encuentro usuario, comprobar correo y contraseña\" )\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "txtEmail",
+							"value": "alejo@gmail.comalejo@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "txtPassword",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "accion",
+							"value": "Ingresar",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/controlador?txtPassword=123&accion=Ingresar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"controlador"
+					],
+					"query": [
+						{
+							"key": "txtEmail",
+							"value": "alejo@gmail.com",
+							"disabled": true
+						},
+						{
+							"key": "txtPassword",
+							"value": "123"
+						},
+						{
+							"key": "accion",
+							"value": "Ingresar"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sin Password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Removed redundant test for response content type\r",
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Name of the user is displayed in the welcome message\", function () {\r",
+							"    const responseData = pm.response.text();\r",
+							"    pm.expect(responseData).to.contain(\"No se encuentro usuario, comprobar correo y contraseña\" )\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "txtEmail",
+							"value": "alejo@gmail.comalejo@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "txtPassword",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "accion",
+							"value": "Ingresar",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/controlador?txtEmail=alejo@gmail.com&accion=Ingresar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"controlador"
+					],
+					"query": [
+						{
+							"key": "txtEmail",
+							"value": "alejo@gmail.com"
+						},
+						{
+							"key": "txtPassword",
+							"value": "123",
+							"disabled": true
+						},
+						{
+							"key": "accion",
+							"value": "Ingresar"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Password incorrecto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Removed redundant test for response content type\r",
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Name of the user is displayed in the welcome message\", function () {\r",
+							"    const responseData = pm.response.text();\r",
+							"    pm.expect(responseData).to.contain(\"No se encuentro usuario, comprobar correo y contraseña\" )\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "txtEmail",
+							"value": "alejo@gmail.comalejo@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "txtPassword",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "accion",
+							"value": "Ingresar",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/controlador?txtEmail=alejo@gmail.com&txtPassword=123456&accion=Ingresar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"controlador"
+					],
+					"query": [
+						{
+							"key": "txtEmail",
+							"value": "alejo@gmail.com"
+						},
+						{
+							"key": "txtPassword",
+							"value": "123456"
+						},
+						{
+							"key": "accion",
+							"value": "Ingresar"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
