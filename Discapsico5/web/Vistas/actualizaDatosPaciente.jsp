@@ -81,7 +81,7 @@
                                                     <div class="input-group mb-3">
                                                         <input type="text" class="form-control" name="txtnumDocumento"  
                                                                placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon2">
-                                                        <button type="submit" name="accion" value="ConsultarRegistroPaciente" class="btn btn-success btn">
+                                                        <button type="submit" name="accion" value="ActualizarRegistroPaciente" class="btn btn-success btn">
                                                             <i class="fas fa-save "></i> Buscar</button>
                                                     </div>
                                                 </form>

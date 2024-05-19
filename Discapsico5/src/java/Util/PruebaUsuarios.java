@@ -6,6 +6,7 @@ import static Persistencia.DaoTipoEntidad.listar;
 import Persistencia.DaoUsuarios;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Scanner;
 
 public class PruebaUsuarios {
 
@@ -27,20 +28,9 @@ public class PruebaUsuarios {
         }
     }
 
-    /*  public static void main(String[] args) {
-    // Supongamos que idPerfil a validar es 1
-    int idPerfil = 1;
-    
-    // Llamada al método obtenerNombrePerfil
-    String nombrePerfil = obtenerNombrePerfil(idPerfil);
-    
-    // Mostrar el resultado
-    System.out.println("El nombre del perfil con id " + idPerfil + " es: " + nombrePerfil);
-}
-
 
     //Metodo de prueba Registrar  Usuario
-    /* public static void main(String[] args) {
+     public static void crear_usuario (String[] args) {
 
         // Crear una instancia de tu clase DAO
      DaoUsuarios daoUsuarios = new DaoUsuarios();
@@ -85,5 +75,5 @@ public class PruebaUsuarios {
             System.out.println("Error en el Registro");
         }
 
-    }*/
+    }
 }

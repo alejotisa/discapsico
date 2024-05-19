@@ -31,14 +31,7 @@ public class ControladorUsuario extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        // Obtener el usuario de la sesión
-    HttpSession session = request.getSession();
-    Usuarios usuarioLog = (Usuarios) session.getAttribute("usuarioLog");
-
-    // Agregar el nombre del usuario a un atributo de la solicitud
-    request.setAttribute("nombreUsuario", usuarioLog.getNombres());
-    
-    
+       
         System.out.println(" <*> Controlador Usuario");
         processRequest(request, response);
 

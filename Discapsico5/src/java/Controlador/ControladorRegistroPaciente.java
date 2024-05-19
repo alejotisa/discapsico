@@ -4,6 +4,7 @@
  */
 package Controlador;
 
+import static Controlador.Controlador.usuarioLog;
 import Modelo.RegistroPaciente;
 import Modelo.TestCaldas;
 import Modelo.Usuarios;
@@ -52,8 +53,7 @@ public class ControladorRegistroPaciente extends HttpServlet {
                 break;
             case "ActualizarRegistroPaciente":
                 consultarregistropaciente(request, response);
-                RequestDispatcher dispatcher2 = request.getRequestDispatcher("Vistas/actualizaDatosPaciente.jsp");
-                dispatcher2.forward(request, response);
+             request.getRequestDispatcher("Vistas/actualizaDatosPaciente.jsp").forward(request, response);
                 break;
 
             case "EditarRegistroPaciente":
@@ -122,7 +122,8 @@ public class ControladorRegistroPaciente extends HttpServlet {
             //. Guardar la informacion en BD
             if (DaoRegistroPaciente.grabar(registropaciente)) {
                 System.out.println(" <*> el paciente fue registrado  |11");
-                request.setAttribute("mensaje", "el paciente fue registrado");                
+                session.setAttribute("paciente", registropaciente);
+                          
                 request.getRequestDispatcher("Vistas/testcaldas.jsp").forward(request, response);
                 
             } else {

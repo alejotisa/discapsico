@@ -42,7 +42,7 @@
                             <% }%>
                             <button type="submit" name="accion" value="Ingresar" class="btn btn-primary w-100 py-2">
                                 <i class="fas fa-save "></i> Ingresar</button>
-                            <button class="btn btn-primary w-100 py-2" type="submit" name="accion" value="Home">Sign in</button>
+                                <!--<button class="btn btn-primary w-100 py-2" type="submit" name="accion" value="Home">Sign in</button>-->
                             <div class="login-signup-now" data-uia="login-signup-now">¿Primera vez en discapsico? <a class="" target="_self" href="/Vistas/registrarme.jsp">Registrate ahora</a>.</div>
 
                         </div>

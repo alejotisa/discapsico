@@ -145,7 +145,13 @@ public class Controlador extends HttpServlet {
         System.out.println("**-  -> llegue a dopost");
 
         String action = request.getParameter("accion");
+System.out.println("Acción recibida: " + action);
+// Imprimir todos los parámetros recibidos
+    request.getParameterMap().forEach((key, value) -> 
+        System.out.println("Parámetro: " + key + ", Valor: " + String.join(", ", value))
+    );
 
+        
         switch (action) {
             case "home":
 

@@ -5,6 +5,7 @@ package Controlador;
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
+import Modelo.RegistroPaciente;
 import Modelo.TestCaldas;
 import Persistencia.DaoTestCaldas;
 import java.io.BufferedReader;
@@ -16,6 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -111,8 +113,14 @@ public class ControladorTestCaldas extends HttpServlet {
       
    
        //. Cargar el objeto de tipo Test Caldas modelo
-            TestCaldas testcaldas = new TestCaldas();
-           testcaldas.setNumDocumento("");
+    
+            TestCaldas testcaldas = new TestCaldas(); 
+        HttpSession session = request.getSession();
+            RegistroPaciente paciente= (RegistroPaciente) session.getAttribute("paciente");
+            System.out.println("asdf "  + paciente.getNumDocumento()+ " -z  " + paciente.getPrimerNombre());
+          
+            
+           testcaldas.setNumDocumento( paciente.getNumDocumento());
        //    testcaldas.setFechaCaracterizacion(fechaCaracterizacion);
            testcaldas.setPregunta1(pregunta1);
            testcaldas.setPregunta2(pregunta2);
@@ -137,7 +145,7 @@ public class ControladorTestCaldas extends HttpServlet {
   //. Guardar la informacion en BD
             if (DaoTestCaldas.grabar(testcaldas)) {
                 System.out.println(" <*> el paciente fue registrado  11");
-                request.setAttribute("mensaje", "el paciente fue registrado");
+                request.setAttribute("mensaje", "test de caldas registrado!, por favor vuelva al home");
                 request.getRequestDispatcher("Vistas/home.jsp").forward(request, response);
                 
                 

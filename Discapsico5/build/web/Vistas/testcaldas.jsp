@@ -214,10 +214,11 @@
                             </div>
                             <% }%>
 
+                            <!--<!--
                                             <a href="/Vistas/guardarCambios.jsp" class="w-100 btn btn-primary btn-lg" onclick="calcularSuma()">
 
                                                 Guardar
-                                            </a>           
+                                            </a>           -->
 
                                             <button  type="button" class="w-100 btn btn-success btn-lg" onclick="calcularSuma()"> Guardar</button>
                                             </form>
