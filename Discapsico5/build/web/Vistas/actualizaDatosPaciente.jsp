@@ -73,7 +73,7 @@
                                                 <div class="alert alert-success">
                                                     <%= request.getAttribute("mensaje")%>
                                                 </div>
-                                                <% }%>
+                                                //                                                <% }%>
 
 
                                                 <form action="/ControladorRegistroPaciente" method="post" >
@@ -81,7 +81,7 @@
                                                     <div class="input-group mb-3">
                                                         <input type="text" class="form-control" name="txtnumDocumento"  
                                                                placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon2">
-                                                        <button type="submit" name="accion" value="ActualizarRegistroPaciente" class="btn btn-success btn">
+                                                        <button type="submit" name="accion" value="ConsultarActRegistroPaciente" class="btn btn-success btn">
                                                             <i class="fas fa-save "></i> Buscar</button>
                                                     </div>
                                                 </form>
@@ -357,322 +357,448 @@
                                                             <hr class="my-4">
 
 
-                                                            <h3>TEST DE CALDAS</h3>
+                                                            <h3>TEST DE CALDAS ${consultarTestCaldas.pregunta1}</h3>
 
                                                             <h4 class=" mb-5 mt-5">Adherencia al Tratamiento (AT) </h4>
 
                                                             <div class="mb-3">
                                                                 <label for="pregunta1" class="form-label">1. ¿Sigue otras recomendaciones aparte del manejo farmacológico o psicoterapéutico?</label>
                                                                 <br>
-                                                                <div class="d-flex justify-content-end align-items-center"role="group" aria-label="Pregunta 1">
-                                                                    <input type="radio" class="btn-check" name="pregunta1" value="2"id="pregunta1-no" autocomplete="off" >
+                                                                <div class="d-flex justify-content-end align-items-center" role="group" aria-label="Pregunta 1">
+                                                                    <input type="radio" class="btn-check" name="pregunta1" value="2" id="pregunta1-no" autocomplete="off">
                                                                     <label class="btn btn-outline-success" for="pregunta1-no">No</label>
-                                                                    <input type="radio" class="btn-check" name="pregunta1"value="1" id="pregunta1-si" autocomplete="off">
+                                                                    <input type="radio" class="btn-check" name="pregunta1" value="1" id="pregunta1-si" autocomplete="off">
                                                                     <label class="btn btn-outline-success" for="pregunta1-si">Sí</label>
                                                                 </div>
-                                                                <div class="mb-3">
-                                                                    <label for="pregunta2" class="form-label">2. ¿Se responsabiliza de la toma de medicamentos y asistencia a las terapias?</label>
-                                                                    <br>
-                                                                    <div class="d-flex justify-content-end align-items-center"role="group" aria-label="Pregunta 2">
-                                                                        <input type="radio" class="btn-check" name="pregunta2" value="2"id="pregunta2-no" autocomplete="off" >
-                                                                        <label class="btn btn-outline-success" for="pregunta2-no">No</label>
-                                                                        <input type="radio" class="btn-check" name="pregunta2"value="1" id="pregunta2-si" autocomplete="off">
-                                                                        <label class="btn btn-outline-success" for="pregunta2-si">Sí</label>
-                                                                    </div>
-                                                                    <div class="mb-3">
-                                                                        <label for="pregunta3" class="form-label">3. ¿Asiste a controles odontológicos?</label>
-                                                                        <br>
-                                                                        <div class="d-flex justify-content-end align-items-center"role="group" aria-label="Pregunta 3">
-                                                                            <input type="radio" class="btn-check" name="pregunta3"value="2" id="pregunta3-no" autocomplete="off" >
-                                                                            <label class="btn btn-outline-success" for="pregunta3-no">No</label>
-                                                                            <input type="radio" class="btn-check" name="pregunta3" value="1"id="pregunta3-si" autocomplete="off">
-                                                                            <label class="btn btn-outline-success" for="pregunta3-si">Sí</label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <!-- Pregunta 4 -->
-                                                                    <div class="mb-3">
-                                                                        <label for="pregunta4" class="form-label">4. ¿Para que siga el tratamiento, es necesario que otros se lo recuerden?</label>
-                                                                        <br>
-                                                                        <div class="d-flex justify-content-end align-items-center"role="group" aria-label="Pregunta 4">
-                                                                            <input type="radio" class="btn-check" name="pregunta4"value="1" id="pregunta4-no" autocomplete="off" >
-                                                                            <label class="btn btn-outline-success" for="pregunta4-no">No</label>
-                                                                            <input type="radio" class="btn-check" name="pregunta4" value="2"id="pregunta4-si" autocomplete="off">
-                                                                            <label class="btn btn-outline-success" for="pregunta4-si">Sí</label>
-                                                                        </div>
+                                                            </div>
 
-
-                                                                    </div>
-
-                                                                    <!-- Pregunta 5 -->
-                                                                    <div class="mb-3">
-                                                                        <label for="pregunta5" class="form-label">5. ¿Cuida su alimentación?</label>
-                                                                        <br>
-                                                                        <div class="d-flex justify-content-end align-items-center"role="group" aria-label="Pregunta 5">
-                                                                            <input type="radio" class="btn-check" name="pregunta5"  value="2" id="pregunta5-no" autocomplete="off" >
-                                                                            <label class="btn btn-outline-success" for="pregunta5-no">No</label>
-                                                                            <input type="radio" class="btn-check" name="pregunta5" value="1" id="pregunta5-si" autocomplete="off">
-                                                                            <label class="btn btn-outline-success" for="pregunta5-si">Sí</label>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <!-- Pregunta 6 -->
-                                                                    <div class="mb-3">
-                                                                        <label for="pregunta6" class="form-label">6. ¿Cuida su higiene personal?</label>
-                                                                        <br>
-                                                                        <div class="d-flex justify-content-end align-items-center" role="group" aria-label="Pregunta 6">
-                                                                            <input type="radio" class="btn-check" name="pregunta6" value="2" id="pregunta6-no" autocomplete="off" >
-                                                                            <label class="btn btn-outline-success" for="pregunta6-no">No</label>
-                                                                            <input type="radio" class="btn-check" name="pregunta6" value="1"id="pregunta6-si" autocomplete="off">
-                                                                            <label class="btn btn-outline-success" for="pregunta6-si">Sí</label>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <!-- Pregunta 7 -->
-                                                                    <div class="mb-3">
-                                                                        <label for="pregunta7" class="form-label">7. ¿Asiste con la periodicidad programada a los controles?</label>
-                                                                        <br>
-                                                                        <div class="d-flex justify-content-end align-items-center" role="group" aria-label="Pregunta 7">
-                                                                            <input type="radio" class="btn-check" name="pregunta7"value="2" id="pregunta7-no" autocomplete="off" >
-                                                                            <label class="btn btn-outline-success" for="pregunta7-no">No</label>
-                                                                            <input type="radio" class="btn-check" name="pregunta7" value="1"id="pregunta7-si" autocomplete="off">
-                                                                            <label class="btn btn-outline-success" for="pregunta7-si">Sí</label>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <!-- Pregunta 8 -->
-                                                                    <div class="mb-3">
-                                                                        <label for="pregunta8" class="form-label">8. ¿Asiste a procesos de capacitación, como cursos, seminarios, clases?</label>
-                                                                        <br>
-                                                                        <div class="d-flex justify-content-end align-items-center" role="group" aria-label="Pregunta 8">
-                                                                            <input type="radio" class="btn-check" name="pregunta8"value="2"id="pregunta8-no" autocomplete="off" >
-                                                                            <label class="btn btn-outline-success" for="pregunta8-no">No</label>
-                                                                            <input type="radio" class="btn-check" name="pregunta8"value="1" id="pregunta8-si" autocomplete="off">
-                                                                            <label class="btn btn-outline-success" for="pregunta8-si">Sí</label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <h4 class="mt-5 mb-5 ">Discapacidad a nivel Personal y Emocional (DPE)</h4>
-                                                                    <!-- Pregunta 9 -->
-                                                                    <div class="mb-3">
-                                                                        <label for="pregunta9" class="form-label">9. ¿Asiste a los programas de promoción y prevención?</label>
-                                                                        <br>
-                                                                        <div class="d-flex justify-content-end align-items-center" role="group" aria-label="Pregunta 9">
-                                                                            <input type="radio" class="btn-check" name="pregunta9"value="2" id="pregunta9-no" autocomplete="off" >
-                                                                            <label class="btn btn-outline-success" for="pregunta9-no">No</label>
-                                                                            <input type="radio" class="btn-check" name="pregunta9"value="1" id="pregunta9-si" autocomplete="off">
-                                                                            <label class="btn btn-outline-success" for="pregunta9-si">Sí</label>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <!-- Pregunta 10 -->
-                                                                    <div class="mb-3">
-                                                                        <label for="pregunta10" class="form-label">10. ¿Se responsabiliza de la toma de medicamentos y asistencia a las terapias?</label>
-                                                                        <br>
-                                                                        <div class="d-flex justify-content-end align-items-center" role="group" aria-label="Pregunta 10">
-                                                                            <input type="radio" class="btn-check" name="pregunta10" value="2"id="pregunta10-no" autocomplete="off" >
-                                                                            <label class="btn btn-outline-success" for="pregunta10-no">No</label>
-                                                                            <input type="radio" class="btn-check" name="pregunta10"value="1" id="pregunta10-si" autocomplete="off">
-                                                                            <label class="btn btn-outline-success" for="pregunta10-si">Sí</label>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <!-- Pregunta 11 -->
-                                                                    <div class="mb-3">
-                                                                        <label for="pregunta11" class="form-label">11. ¿En los últimos tres meses, ¿se frustra con facilidad?</label>
-                                                                        <br>
-                                                                        <div class="d-flex justify-content-end align-items-center" role="group" aria-label="Pregunta 11">
-                                                                            <input type="radio" class="btn-check" name="pregunta11"value="2" id="pregunta11-no" autocomplete="off" >
-                                                                            <label class="btn btn-outline-success" for="pregunta11-no">No</label>
-                                                                            <input type="radio" class="btn-check" name="pregunta11"value="1" id="pregunta11-si" autocomplete="off">
-                                                                            <label class="btn btn-outline-success" for="pregunta11-si">Sí</label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <h4 class="mt-5 mb-5 ">Discapacidad Social (DS)</h4>
-                                                                    <!-- Pregunta 12 -->
-                                                                    <div class="mb-3">
-                                                                        <label for="pregunta12" class="form-label">12. ¿Considera que tiene habilidades manuales o artísticas aparte de las laborales?</label>
-                                                                        <br>
-                                                                        <div class="d-flex justify-content-end align-items-center" role="group" aria-label="Pregunta 12">
-                                                                            <input type="radio" class="btn-check" name="pregunta12"value="1" id="pregunta12-no" autocomplete="off" >
-                                                                            <label class="btn btn-outline-success" for="pregunta12-no">No</label>
-                                                                            <input type="radio" class="btn-check" name="pregunta12"value="2" id="pregunta12-si" autocomplete="off">
-                                                                            <label class="btn btn-outline-success" for="pregunta12-si">Sí</label>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <!-- Pregunta 13 -->
-                                                                    <div class="mb-3">
-                                                                        <label for="pregunta13" class="form-label">13. ¿En los últimos tres meses, ¿es frecuente que se aísle a causa de sus emociones?</label>
-                                                                        <br>
-                                                                        <div class="d-flex justify-content-end align-items-center" role="group" aria-label="Pregunta 13">
-                                                                            <input type="radio" class="btn-check" name="pregunta13" value="2"id="pregunta13-no" autocomplete="off" >
-                                                                            <label class="btn btn-outline-success" for="pregunta13-no">No</label>
-                                                                            <input type="radio" class="btn-check" name="pregunta13"value="1" id="pregunta13-si" autocomplete="off">
-                                                                            <label class="btn btn-outline-success" for="pregunta13-si">Sí</label>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <!-- Pregunta 14 -->
-                                                                    <div class="mb-3">
-                                                                        <label for="pregunta14" class="form-label">14. ¿Suele buscar ayuda en las personas más cercanas cuando se siente triste o angustiado?</label>
-                                                                        <br>
-                                                                        <div class="d-flex justify-content-end align-items-center" role="group" aria-label="Pregunta 14">
-                                                                            <input type="radio" class="btn-check" name="pregunta14" value="2"id="pregunta14-no" autocomplete="off" >
-                                                                            <label class="btn btn-outline-success" for="pregunta14-no">No</label>
-                                                                            <input type="radio" class="btn-check" name="pregunta14" value="1"id="pregunta14-si" autocomplete="off">
-                                                                            <label class="btn btn-outline-success" for="pregunta14-si">Sí</label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <hr>   
-
-
-                                                                    <div class="form-group mt-3 text-center" style="border: none;">
-                                                                        <div class="d-flex justify-content-end">
-                                                                            <!-- <button type="submit" name="accion" value="registrar" class="btn btn-warning mx-1">
-                                                                               <i class="fas fa-save"></i> Editar
-                                                                           </button>-->
-
-                                                                            <button type="submit" name="accion" value="actualizar" class="btn btn-success mx-1">
-                                                                                <i class="bi bi-arrow-repeat"></i> Guardar
-                                                                            </button>
-                                                                            <button type="submit" name="accion" value="listar2" class="btn btn-secondary mx-1">
-                                                                                <i class="bi bi-x-lg"></i> Cancelar
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <hr>                                   
-
-
-
-
-
-                                                                    <div class="row">
-                                                                        <div class="py-5 text-center">
-                                                                            <h2 class="mb-5 mt-5">PUNTAJE</h2>
-                                                                            <div class="col-md-2"></div>
-                                                                            <div class="col-md-12">
-                                                                                <div class="row">
-                                                                                    <div class="col-md-4">
-                                                                                        <h4 class="mb-5 mt-5"> Adherencia al Tratamiento  (AT) </h4>
-                                                                                        <!-- Agrega espacio para el puntaje -->
-                                                                                        <div class="form-group">
-                                                                                            <input type="text" class="form-control" placeholder="Puntaje AT" required>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-md-4">
-                                                                                        <h4 class="mt-5 mb-5">Discapacidad a nivel Personal y Emocional (DPE)</h4>
-                                                                                        <!-- Agrega espacio para el puntaje -->
-                                                                                        <div class="form-group">
-                                                                                            <input type="text" class="form-control" placeholder="Puntaje DPE" required>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-md-4">
-                                                                                        <h4 class="mt-5 mb-5">Discapacidad a nivel Social (DS)</h4>
-                                                                                        <!-- Agrega espacio para el puntaje -->
-                                                                                        <div class="form-group">
-                                                                                            <input type="text" class="form-control" placeholder="Puntaje DS" required>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <h4 class="mt-5 mb-5">TOTAL</h4>
-                                                                                <!-- Agrega espacio para el puntaje total -->
-                                                                                <div class="form-group">
-                                                                                    <input type="text" class="form-control" placeholder="Puntaje Total" required>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-2"></div>
-                                                                        </div>
-                                                                        <hr class="my-4">
-
-
-                                                                        <div class="container">
-                                                                            <div class="row justify-content-center">
-                                                                                <div class="col-md-12">
-                                                                                    <div class="recuadro">
-                                                                                        <h2 class="text-center">Tabla de Puntajes - Niveles de Riesgo</h2>
-                                                                                        <table class="table table-bordered">
-                                                                                            <thead>
-                                                                                                <tr>
-                                                                                                    <th class="importancia-alta">Categoría</th>
-                                                                                                    <th class="importancia-alta">Sin riesgo</th>
-                                                                                                    <th class="importancia-media">Bajo riesgo</th>
-                                                                                                    <th class="importancia-media">Riesgo moderado</th>
-                                                                                                    <th class="importancia-baja">Riesgo alto</th>
-                                                                                                    <th class="importancia-baja">Riesgo muy alto</th>
-                                                                                                </tr>
-                                                                                            </thead>
-                                                                                            <tbody>
-                                                                                                <tr>
-                                                                                                    <td class="importancia-alta">Adherencia al Tratamiento (AT)</td>
-                                                                                                    <td class="importancia-alta">8 puntos</td>
-                                                                                                    <td class="importancia-media">8-12 puntos</td>
-                                                                                                    <td class="importancia-media">13-15 puntos</td>
-                                                                                                    <td class="importancia-baja">Superior a 15 puntos</td>
-                                                                                                    <td class="importancia-baja">-</td>
-                                                                                                </tr>
-                                                                                                <tr>
-                                                                                                    <td class="importancia-alta">Discapacidad Personal y Emocional (DPE)</td>
-                                                                                                    <td class="importancia-alta">3 puntos</td>
-                                                                                                    <td class="importancia-media">4 puntos</td>
-                                                                                                    <td class="importancia-media">5 puntos</td>
-                                                                                                    <td class="importancia-baja">6 puntos</td>
-                                                                                                    <td class="importancia-baja">-</td>
-                                                                                                </tr>
-                                                                                                <tr>
-                                                                                                    <td class="importancia-alta">Discapacidad Social (DS)</td>
-                                                                                                    <td class="importancia-alta">3 puntos</td>
-                                                                                                    <td class="importancia-media">4 puntos</td>
-                                                                                                    <td class="importancia-media">5 puntos</td>
-                                                                                                    <td class="importancia-baja">Superior a 6 puntos</td>
-                                                                                                    <td class="importancia-baja">-</td>
-                                                                                                </tr>
-                                                                                                <tr>
-                                                                                                    <td class="importancia-alta">Total</td>
-                                                                                                    <td class="importancia-alta">15 puntos</td>
-                                                                                                    <td class="importancia-media">16-18 puntos</td>
-                                                                                                    <td class="importancia-media">19-21 puntos</td>
-                                                                                                    <td class="importancia-baja">22-24 puntos</td>
-                                                                                                    <td class="importancia-baja">Superior a 24 puntos</td>
-                                                                                                </tr>
-                                                                                            </tbody>
-                                                                                        </table>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <a href="/Vistas/home.jsp" class="w-100 btn btn-success btn-lg" onclick="calcularSuma()">
-                                                                            Terminar</a>
-                                                                    </div>
+                                                            <div class="mb-3">
+                                                                <label for="pregunta2" class="form-label">2. ¿Se responsabiliza de la toma de medicamentos y asistencia a las terapias?</label>
+                                                                <br>
+                                                                <div class="d-flex justify-content-end align-items-center" role="group" aria-label="Pregunta 2">
+                                                                    <input type="radio" class="btn-check" name="pregunta2" value="2" id="pregunta2-no" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="pregunta2-no">No</label>
+                                                                    <input type="radio" class="btn-check" name="pregunta2" value="1" id="pregunta2-si" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="pregunta2-si">Sí</label>
                                                                 </div>
+                                                            </div>
+
+                                                            <div class="mb-3">
+                                                                <label for="pregunta3" class="form-label">3. ¿Asiste a controles odontológicos?</label>
+                                                                <br>
+                                                                <div class="d-flex justify-content-end align-items-center" role="group" aria-label="Pregunta 3">
+                                                                    <input type="radio" class="btn-check" name="pregunta3" value="2" id="pregunta3-no" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="pregunta3-no">No</label>
+                                                                    <input type="radio" class="btn-check" name="pregunta3" value="1" id="pregunta3-si" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="pregunta3-si">Sí</label>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="mb-3">
+                                                                <label for="pregunta4" class="form-label">4. ¿Para que siga el tratamiento, es necesario que otros se lo recuerden?</label>
+                                                                <br>
+                                                                <div class="d-flex justify-content-end align-items-center" role="group" aria-label="Pregunta 4">
+                                                                    <input type="radio" class="btn-check" name="pregunta4" value="1" id="pregunta4-no" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="pregunta4-no">No</label>
+                                                                    <input type="radio" class="btn-check" name="pregunta4" value="2" id="pregunta4-si" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="pregunta4-si">Sí</label>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="mb-3">
+                                                                <label for="pregunta5" class="form-label">5. ¿Cuida su alimentación?</label>
+                                                                <br>
+                                                                <div class="d-flex justify-content-end align-items-center" role="group" aria-label="Pregunta 5">
+                                                                    <input type="radio" class="btn-check" name="pregunta5" value="2" id="pregunta5-no" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="pregunta5-no">No</label>
+                                                                    <input type="radio" class="btn-check" name="pregunta5" value="1" id="pregunta5-si" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="pregunta5-si">Sí</label>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="mb-3">
+                                                                <label for="pregunta6" class="form-label">6. ¿Cuida su higiene personal?</label>
+                                                                <br>
+                                                                <div class="d-flex justify-content-end align-items-center" role="group" aria-label="Pregunta 6">
+                                                                    <input type="radio" class="btn-check" name="pregunta6" value="2" id="pregunta6-no" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="pregunta6-no">No</label>
+                                                                    <input type="radio" class="btn-check" name="pregunta6" value="1" id="pregunta6-si" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="pregunta6-si">Sí</label>
+                                                                </div>
+                                                            </div>
+
+
+
+                                                            <!-- Pregunta 7 -->
+                                                            <div class="mb-3">
+                                                                <label for="pregunta7" class="form-label">7. ¿Asiste con la periodicidad programada a los controles?</label>
+                                                                <br>
+                                                                <div class="d-flex justify-content-end align-items-center" role="group" aria-label="Pregunta 7">
+                                                                    <input type="radio" class="btn-check" name="pregunta7" value="2" id="pregunta7-no" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="pregunta7-no">No</label>
+                                                                    <input type="radio" class="btn-check" name="pregunta7" value="1" id="pregunta7-si" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="pregunta7-si">Sí</label>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Pregunta 8 -->
+                                                            <div class="mb-3">
+                                                                <label for="pregunta8" class="form-label">8. ¿Asiste a procesos de capacitación, como cursos, seminarios, clases?</label>
+                                                                <br>
+                                                                <div class="d-flex justify-content-end align-items-center" role="group" aria-label="Pregunta 8">
+                                                                    <input type="radio" class="btn-check" name="pregunta8" value="2" id="pregunta8-no" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="pregunta8-no">No</label>
+                                                                    <input type="radio" class="btn-check" name="pregunta8" value="1" id="pregunta8-si" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="pregunta8-si">Sí</label>
+                                                                </div>
+                                                            </div>
+
+                                                            <h4 class="mt-5 mb-5">Discapacidad a nivel Personal y Emocional (DPE)</h4>
+
+                                                            <!-- Pregunta 9 -->
+                                                            <div class="mb-3">
+                                                                <label for="pregunta9" class="form-label">9. ¿Asiste a los programas de promoción y prevención?</label>
+                                                                <br>
+                                                                <div class="d-flex justify-content-end align-items-center" role="group" aria-label="Pregunta 9">
+                                                                    <input type="radio" class="btn-check" name="pregunta9" value="2" id="pregunta9-no" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="pregunta9-no">No</label>
+                                                                    <input type="radio" class="btn-check" name="pregunta9" value="1" id="pregunta9-si" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="pregunta9-si">Sí</label>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Pregunta 10 -->
+                                                            <div class="mb-3">
+                                                                <label for="pregunta10" class="form-label">10. ¿Se responsabiliza de la toma de medicamentos y asistencia a las terapias?</label>
+                                                                <br>
+                                                                <div class="d-flex justify-content-end align-items-center" role="group" aria-label="Pregunta 10">
+                                                                    <input type="radio" class="btn-check" name="pregunta10" value="2" id="pregunta10-no" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="pregunta10-no">No</label>
+                                                                    <input type="radio" class="btn-check" name="pregunta10" value="1" id="pregunta10-si" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="pregunta10-si">Sí</label>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Pregunta 11 -->
+                                                            <div class="mb-3">
+                                                                <label for="pregunta11" class="form-label">11. ¿En los últimos tres meses, ¿se frustra con facilidad?</label>
+                                                                <br>
+                                                                <div class="d-flex justify-content-end align-items-center" role="group" aria-label="Pregunta 11">
+                                                                    <input type="radio" class="btn-check" name="pregunta11" value="2" id="pregunta11-no" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="pregunta11-no">No</label>
+                                                                    <input type="radio" class="btn-check" name="pregunta11" value="1" id="pregunta11-si" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="pregunta11-si">Sí</label>
+                                                                </div>
+                                                            </div>
+
+                                                            <h4 class="mt-5 mb-5">Discapacidad Social (DS)</h4>
+
+                                                            <!-- Pregunta 12 -->
+                                                            <div class="mb-3">
+                                                                <label for="pregunta12" class="form-label">12. ¿Considera que tiene habilidades manuales o artísticas aparte de las laborales?</label>
+                                                                <br>
+                                                                <div class="d-flex justify-content-end align-items-center" role="group" aria-label="Pregunta 12">
+                                                                    <input type="radio" class="btn-check" name="pregunta12" value="1" id="pregunta12-no" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="pregunta12-no">No</label>
+                                                                    <input type="radio" class="btn-check" name="pregunta12" value="2" id="pregunta12-si" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="pregunta12-si">Sí</label>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Pregunta 13 -->
+                                                            <div class="mb-3">
+                                                                <label for="pregunta13" class="form-label">13. ¿En los últimos tres meses, ¿es frecuente que se aísle a causa de sus emociones?</label>
+                                                                <br>
+                                                                <div class="d-flex justify-content-end align-items-center" role="group" aria-label="Pregunta 13">
+                                                                    <input type="radio" class="btn-check" name="pregunta13" value="2" id="pregunta13-no" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="pregunta13-no">No</label>
+                                                                    <input type="radio" class="btn-check" name="pregunta13" value="1" id="pregunta13-si" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="pregunta13-si">Sí</label>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Pregunta 14 -->
+                                                            <div class="mb-3">
+                                                                <label for="pregunta14" class="form-label">14. ¿Suele buscar ayuda en las personas más cercanas cuando se siente triste o angustiado?</label>
+                                                                <br>
+                                                                <div class="d-flex justify-content-end align-items-center" role="group" aria-label="Pregunta 14">
+                                                                    <input type="radio" class="btn-check" name="pregunta14" value="2" id="pregunta14-no" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="pregunta14-no">No</label>
+                                                                    <input type="radio" class="btn-check" name="pregunta14" value="1" id="pregunta14-si" autocomplete="off">
+                                                                    <label class="btn btn-outline-success" for="pregunta14-si">Sí</label>
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+
+
+                                                            <div class="form-group mt-3 text-center" style="border: none;">
+                                                                <div class="d-flex justify-content-end">
+                                                                    <!-- <button type="submit" name="accion" value="registrar" class="btn btn-warning mx-1">
+                                                                       <i class="fas fa-save"></i> Editar
+                                                                   </button>-->
+
+                                                                    <button type="submit" name="accion" value="actualizar" class="btn btn-success mx-1">
+                                                                        <i class="bi bi-arrow-repeat"></i> Guardar
+                                                                    </button>
+                                                                    <button type="submit" name="accion" value="listar2" class="btn btn-secondary mx-1">
+                                                                        <i class="bi bi-x-lg"></i> Cancelar
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+
+                                                            <hr>                                   
                                                         </form>
 
 
+
+                                                        <form>
+                                                            <div class="row">
+                                                                <div class="py-5 text-center">
+                                                                    <h2 class="mb-5 mt-5">PUNTAJE</h2>
+                                                                    <div class="col-md-2"></div>
+                                                                    <div class="col-md-12">
+                                                                        <div class="row">
+                                                                            <div class="col-md-4">
+                                                                                <h4 class="mb-5 mt-5"> Adherencia al Tratamiento  (AT) </h4>
+                                                                                <!-- Agrega espacio para el puntaje -->
+                                                                                <div class="form-group">
+                                                                                    <input type="text" class="form-control" placeholder="Puntaje AT" required>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4">
+                                                                                <h4 class="mt-5 mb-5">Discapacidad a nivel Personal y Emocional (DPE)</h4>
+                                                                                <!-- Agrega espacio para el puntaje -->
+                                                                                <div class="form-group">
+                                                                                    <input type="text" class="form-control" placeholder="Puntaje DPE" required>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4">
+                                                                                <h4 class="mt-5 mb-5">Discapacidad a nivel Social (DS)</h4>
+                                                                                <!-- Agrega espacio para el puntaje -->
+                                                                                <div class="form-group">
+                                                                                    <input type="text" class="form-control" placeholder="Puntaje DS" required>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <h4 class="mt-5 mb-5">TOTAL</h4>
+                                                                        <!-- Agrega espacio para el puntaje total -->
+                                                                        <div class="form-group">
+                                                                            <input type="text" class="form-control" placeholder="Puntaje Total" required>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-2"></div>
+                                                                </div>
+                                                                <hr class="my-4">
+
+
+                                                                <div class="container">
+                                                                    <div class="row justify-content-center">
+                                                                        <div class="col-md-12">
+                                                                            <div class="recuadro">
+                                                                                <h2 class="text-center">Tabla de Puntajes - Niveles de Riesgo</h2>
+                                                                                <table class="table table-bordered">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th class="importancia-alta">Categoría</th>
+                                                                                            <th class="importancia-alta">Sin riesgo</th>
+                                                                                            <th class="importancia-media">Bajo riesgo</th>
+                                                                                            <th class="importancia-media">Riesgo moderado</th>
+                                                                                            <th class="importancia-baja">Riesgo alto</th>
+                                                                                            <th class="importancia-baja">Riesgo muy alto</th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <td class="importancia-alta">Adherencia al Tratamiento (AT)</td>
+                                                                                            <td class="importancia-alta">8 puntos</td>
+                                                                                            <td class="importancia-media">8-12 puntos</td>
+                                                                                            <td class="importancia-media">13-15 puntos</td>
+                                                                                            <td class="importancia-baja">Superior a 15 puntos</td>
+                                                                                            <td class="importancia-baja">-</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="importancia-alta">Discapacidad Personal y Emocional (DPE)</td>
+                                                                                            <td class="importancia-alta">3 puntos</td>
+                                                                                            <td class="importancia-media">4 puntos</td>
+                                                                                            <td class="importancia-media">5 puntos</td>
+                                                                                            <td class="importancia-baja">6 puntos</td>
+                                                                                            <td class="importancia-baja">-</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="importancia-alta">Discapacidad Social (DS)</td>
+                                                                                            <td class="importancia-alta">3 puntos</td>
+                                                                                            <td class="importancia-media">4 puntos</td>
+                                                                                            <td class="importancia-media">5 puntos</td>
+                                                                                            <td class="importancia-baja">Superior a 6 puntos</td>
+                                                                                            <td class="importancia-baja">-</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="importancia-alta">Total</td>
+                                                                                            <td class="importancia-alta">15 puntos</td>
+                                                                                            <td class="importancia-media">16-18 puntos</td>
+                                                                                            <td class="importancia-media">19-21 puntos</td>
+                                                                                            <td class="importancia-baja">22-24 puntos</td>
+                                                                                            <td class="importancia-baja">Superior a 24 puntos</td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <a href="/Vistas/home.jsp" class="w-100 btn btn-success btn-lg" onclick="calcularSuma()">
+                                                                    Terminar</a>
+                                                            </div>
                                                     </div>
+                                            </form>
+
+
+                                        </div>
 
 
 
-                                                    </main>
+                                        </main>
 
-                                                    <footer class="my-5 pt-5 text-body-secondary text-center text-small">
-                                                        <p class="mb-1"> &copy; 2017 ? 2023 Secretaria de salud</p>
+                                        <footer class="my-5 pt-5 text-body-secondary text-center text-small">
+                                            <p class="mb-1"> &copy; 2017 ? 2023 Secretaria de salud</p>
 
-                                                        <footer class="pt-3 mt-4 text-body-secondary border-top">
-                                                            &copy; Secretaría Distrital de Salud
-                                                            Cra 32 #12-81 Bogotá, Colombia
-                                                            Teléfono: 601 3649090
-                                                            Código Postal: 0571
-                                                            Consulte los Horarios de Atención
-                                                            Línea Servicio a la ciudadanía: 601 3295090
-                                                            Notificaciones Judiciales
-                                                            Puntos de atención al ciudadano
-                                                            notificacionjudicial@saludcapital.gov.co
-                                                            Políticas de Seguridad de la Información y Términos de Uso del Sitio Web de la Secretaría Distrital de Salud y el Fondo Financiero de Salud
-                                                            Políticas de Protección y Tratamiento de Datos Personales de la Secretaría Distrital de Salud y el Fondo Financiero de Salud
-                                                        </footer>
+                                            <footer class="pt-3 mt-4 text-body-secondary border-top">
+                                                &copy; Secretaría Distrital de Salud
+                                                Cra 32 #12-81 Bogotá, Colombia
+                                                Teléfono: 601 3649090
+                                                Código Postal: 0571
+                                                Consulte los Horarios de Atención
+                                                Línea Servicio a la ciudadanía: 601 3295090
+                                                Notificaciones Judiciales
+                                                Puntos de atención al ciudadano
+                                                notificacionjudicial@saludcapital.gov.co
+                                                Políticas de Seguridad de la Información y Términos de Uso del Sitio Web de la Secretaría Distrital de Salud y el Fondo Financiero de Salud
+                                                Políticas de Protección y Tratamiento de Datos Personales de la Secretaría Distrital de Salud y el Fondo Financiero de Salud
+                                            </footer>
 
+                                            </div>
+
+
+                                            <h3>TEST DE CALDAS</h3>
+
+                                            <h4 class="mb-5 mt-5">Adherencia al Tratamiento (AT)</h4>
+
+                                            <div class="mb-3">
+                                                <label for="pregunta1" class="form-label">1. ¿Sigue otras recomendaciones aparte del manejo farmacológico o psicoterapéutico?</label>
+                                                <br>
+                                                <div class="d-flex justify-content-end align-items-center" role="group" aria-label="Pregunta 1">
+                                                    <input type="radio" class="btn-check" name="pregunta1" value="2" id="pregunta1-no" autocomplete="off">
+                                                    <label class="btn btn-outline-success" for="pregunta1-no">No</label>
+                                                    <input type="radio" class="btn-check" name="pregunta1" value="1" id="pregunta1-si" autocomplete="off">
+                                                    <label class="btn btn-outline-success" for="pregunta1-si">Sí</label>
                                                 </div>
-                                                <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="pregunta2" class="form-label">2. ¿Se responsabiliza de la toma de medicamentos y asistencia a las terapias?</label>
+                                                <br>
+                                                <div class="d-flex justify-content-end align-items-center" role="group" aria-label="Pregunta 2">
+                                                    <input type="radio" class="btn-check" name="pregunta2" value="2" id="pregunta2-no" autocomplete="off">
+                                                    <label class="btn btn-outline-success" for="pregunta2-no">No</label>
+                                                    <input type="radio" class="btn-check" name="pregunta2" value="1" id="pregunta2-si" autocomplete="off">
+                                                    <label class="btn btn-outline-success" for="pregunta2-si">Sí</label>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="pregunta3" class="form-label">3. ¿Asiste a controles odontológicos?</label>
+                                                <br>
+                                                <div class="d-flex justify-content-end align-items-center" role="group" aria-label="Pregunta 3">
+                                                    <input type="radio" class="btn-check" name="pregunta3" value="2" id="pregunta3-no" autocomplete="off">
+                                                    <label class="btn btn-outline-success" for="pregunta3-no">No</label>
+                                                    <input type="radio" class="btn-check" name="pregunta3" value="1" id="pregunta3-si" autocomplete="off">
+                                                    <label class="btn btn-outline-success" for="pregunta3-si">Sí</label>
+                                                </div>
+                                            </div>
 
-                                                <script src="checkout.js"></script></body>
-                                                </html>
+
+                                            <script>
+                                                document.addEventListener("DOMContentLoaded", function () {
+                                                    var consultarTestCaldas = {
+                                                        pregunta1: "${consultarTestCaldas.pregunta1}",
+                                                        pregunta2: "${consultarTestCaldas.pregunta2}",
+                                                        pregunta3: "${consultarTestCaldas.pregunta3}",
+                                                        pregunta4: "${consultarTestCaldas.pregunta4}",
+                                                        pregunta5: "${consultarTestCaldas.pregunta5}",
+                                                        pregunta6: "${consultarTestCaldas.pregunta6}",
+                                                        pregunta7: "${consultarTestCaldas.pregunta7}",
+                                                        pregunta8: "${consultarTestCaldas.pregunta8}",
+                                                        pregunta9: "${consultarTestCaldas.pregunta9}",
+                                                        pregunta10: "${consultarTestCaldas.pregunta10}",
+                                                        pregunta11: "${consultarTestCaldas.pregunta11}",
+                                                        pregunta12: "${consultarTestCaldas.pregunta12}",
+                                                        pregunta13: "${consultarTestCaldas.pregunta13}",
+                                                        pregunta14: "${consultarTestCaldas.pregunta14}"
+                                                                // Agrega las demás preguntas aquí
+                                                    };
+
+                                                    for (var key in consultarTestCaldas) {
+                                                        if (consultarTestCaldas.hasOwnProperty(key)) {
+                                                            var value = consultarTestCaldas[key];
+                                                            var yesRadio = document.getElementById(key + "-si");
+                                                            var noRadio = document.getElementById(key + "-no");
+
+                                                            if (value === "1" && yesRadio) {
+                                                                yesRadio.checked = true;
+                                                            } else if (value === "2" && noRadio) {
+                                                                noRadio.checked = true;
+                                                            }
+                                                        }
+                                                    }
+                                                });
+                                            </script>
+
+                                            <script>
+                                                document.addEventListener("DOMContentLoaded", function () {
+                                                    var consultarTestCaldas = ${consultarTestCaldas};
+                                                    if (consultarTestCaldas != null) {
+                                                        var consultarTestCaldasValues = {
+                                                            pregunta1: consultarTestCaldas.pregunta1,
+                                                            pregunta2: consultarTestCaldas.pregunta2,
+                                                            pregunta3: consultarTestCaldas.pregunta3,
+                                                            pregunta4: consultarTestCaldas.pregunta4,
+                                                            pregunta5: consultarTestCaldas.pregunta5,
+                                                            pregunta6: consultarTestCaldas.pregunta6,
+                                                            pregunta7: consultarTestCaldas.pregunta7,
+                                                            pregunta8: consultarTestCaldas.pregunta8,
+                                                            pregunta9: consultarTestCaldas.pregunta9,
+                                                            pregunta10: consultarTestCaldas.pregunta10,
+                                                            pregunta11: consultarTestCaldas.pregunta11,
+                                                            pregunta12: consultarTestCaldas.pregunta12,
+                                                            pregunta13: consultarTestCaldas.pregunta13,
+                                                            pregunta14: consultarTestCaldas.pregunta14
+                                                        };
+
+                                                        for (var key in consultarTestCaldasValues) {
+                                                            if (consultarTestCaldasValues.hasOwnProperty(key)) {
+                                                                var value = consultarTestCaldasValues[key];
+                                                                var yesRadio = document.getElementById(key + "-si");
+                                                                var noRadio = document.getElementById(key + "-no");
+
+                                                                if (value == 1 && yesRadio) {
+                                                                    yesRadio.checked = true;
+                                                                } else if (value == 2 && noRadio) {
+                                                                    noRadio.checked = true;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                });
+                                            </script>
+
+
+
+
+
+
+
+
+
+                                            <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+                                            <script src="checkout.js"></script></body>
+                                            </html>
 

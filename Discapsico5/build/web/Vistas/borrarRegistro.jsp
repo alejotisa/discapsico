@@ -38,6 +38,17 @@
                                                     <h5 class="card-title text-start">Busque El Paciente Para Borrar</h5>
                                                     <p class="text-start">Aqui puedes gestionar las busquedas de los pacientes por numero de cedula para borrar los registros.</p>
 
+                                                    <% if (request.getAttribute("error") != null && (Boolean) request.getAttribute("error")) {%>
+                                                    <div class="alert alert-danger">
+                                                        <%= request.getAttribute("mensaje")%>
+                                                    </div>
+                                                    <% } else if (request.getAttribute("mensaje") != null) {%>
+                                                    <div class="alert alert-success">
+                                                        <%= request.getAttribute("mensaje")%>
+                                                    </div>
+                                                    //                                                <% }%>
+
+
                                                     <form action="/ControladorRegistroPaciente" method="post" >
                                                         <div class="input-group mb-3">
                                                             <input type="text" class="form-control" placeholder="Cedula..." aria-label="Buscar" aria-describedby="basic-addon2" name="txtnumDocumento"  >
@@ -373,6 +384,16 @@
                                                         </div>
                                                         <div id="mensaje" style="display: none;"></div>
 
+                                                        <% if (request.getAttribute("errorDelet") != null && (Boolean) request.getAttribute("errorDelet")) {%>
+                                                        <div class="alert alert-danger">
+                                                            <%= request.getAttribute("mensajeDelet")%>
+                                                        </div>
+                                                        <% } else if (request.getAttribute("mensajeDelet") != null) {%>
+                                                        <div class="alert alert-success">
+                                                            <%= request.getAttribute("mensajeDelet")%>
+                                                        </div>
+                                                        //                                                <% }%>
+
                                                         <a href="#" class="w-100 btn btn-danger btn-lg" onclick="eliminar('${registropaciente.numDocumento}')">Borrar</a>
 
                                                 </form>
@@ -407,19 +428,32 @@
                                                     function eliminar(numDocumento) {
                                                         if (confirm('¿Estás seguro de que quieres eliminar este registro ' + numDocumento + ' ?')) {
                                                             fetch("/ControladorRegistroPaciente?accion=EliminarRegistroPaciente&numDocumento=" + numDocumento)
-                                                                    .then(response => response.text())
-                                                                    .then(mensaje => {
+                                                                    .then(response => response.json())
+                                                                    .then(data => {
                                                                         var mensajeDiv = document.getElementById('mensaje');
                                                                         mensajeDiv.style.display = 'block';
-                                                                        // Agrega el emoji de advertencia al inicio y final del mensaje
-                                                                        mensajeDiv.innerText = mensaje;
+
+                                                                        if (data.success) {
+                                                                            mensajeDiv.className = 'alert alert-success';
+                                                                        } else {
+                                                                            mensajeDiv.className = 'alert alert-danger';
+                                                                        }
+
+                                                                        mensajeDiv.innerText = data.mensaje;
                                                                         mensajeDiv.scrollIntoView({behavior: "smooth"});
+                                                                    })
+                                                                    .catch(error => {
+                                                                        var mensajeDiv = document.getElementById('mensaje');
+                                                                        mensajeDiv.style.display = 'block';
+                                                                        mensajeDiv.className = 'alert alert-danger';
+                                                                        mensajeDiv.innerText = 'Error al procesar la solicitud.';
+                                                                        mensajeDiv.scrollIntoView({behavior: "smooth"});
+                                                                        console.error('Error:', error);
                                                                     });
                                                         }
                                                     }
-
-
                                                 </script>
+
 
 
                                                 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>

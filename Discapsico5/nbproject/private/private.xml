@@ -3,12 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Discapsico5/Discapsico5/web/Vistas/puntajeTestCaldas.jsp</file>
             <file>file:/C:/Users/admin/Documents/NetBeansProjects/Discapsico5/Discapsico5/src/java/Controlador/ControladorRegistroPaciente.java</file>
-            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Discapsico5/Discapsico5/src/java/Controlador/Controlador.java</file>
-            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Discapsico5/Discapsico5/web/Vistas/iniciosesion.jsp</file>
-            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Discapsico5/Discapsico5/src/java/Persistencia/DaoTestCaldas.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Discapsico5/Discapsico5/web/Vistas/testcaldas.jsp</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Discapsico5/Discapsico5/web/Vistas/actualizaDatosPaciente.jsp</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Discapsico5/Discapsico5/src/java/Persistencia/DaoRegistroPaciente.java</file>
             <file>file:/C:/Users/admin/Documents/NetBeansProjects/Discapsico5/Discapsico5/src/java/Controlador/ControladorTestCaldas.java</file>
-            <file>file:/C:/Users/admin/Documents/NetBeansProjects/Discapsico5/Discapsico5/web/Vistas/registropaciente.jsp</file>
         </group>
     </open-files>
 </project-private>

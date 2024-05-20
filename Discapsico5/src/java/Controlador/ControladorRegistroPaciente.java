@@ -47,10 +47,14 @@ public class ControladorRegistroPaciente extends HttpServlet {
                 break;
             case "ConsultarRegistroPaciente":
                 consultarregistropaciente(request, response);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("Vistas/consultarRegistro.jsp");
-                dispatcher.forward(request, response);
-
-                break;
+                // Redireccionar al JSP adecuado
+                request.getRequestDispatcher("Vistas/consultarRegistro.jsp").forward(request, response);
+           break;
+           case "ConsultarActRegistroPaciente":
+                consultarregistropaciente(request, response);
+                // Redireccionar al JSP adecuado
+                request.getRequestDispatcher("Vistas/actualizaDatosPaciente.jsp").forward(request, response);
+           break;
             case "ActualizarRegistroPaciente":
                 consultarregistropaciente(request, response);
              request.getRequestDispatcher("Vistas/actualizaDatosPaciente.jsp").forward(request, response);
@@ -62,6 +66,7 @@ public class ControladorRegistroPaciente extends HttpServlet {
                 dispatcher3.forward(request, response);
                 break;
             case "ConsultarEliminarRegistroPaciente":
+                 System.out.println(" <*> Controlador Consulta Registro Paciente metodo get " + request.getParameter("txtnumDocumento"));
                 consultarregistropaciente(request, response);
                 RequestDispatcher dispatcher4 = request.getRequestDispatcher("Vistas//borrarRegistro.jsp");
                 dispatcher4.forward(request, response);
@@ -69,7 +74,6 @@ public class ControladorRegistroPaciente extends HttpServlet {
                 break;
          case "EliminarRegistroPaciente":           
             eliminarregistropaciente(request, response);
-            
            break;
 
         
@@ -147,35 +151,33 @@ public class ControladorRegistroPaciente extends HttpServlet {
     }
 
     private void consultarregistropaciente(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+        throws ServletException, IOException {
 
-        try {
-            // Capturar la info del Formulario
-            System.out.println(" <*> Controlador Consulta Registro Paciente metodo get " + request.getParameter("txtnumDocumento") );
+    try {
+        String numDocumento = request.getParameter("txtnumDocumento");
 
-            String numDocumento = request.getParameter("txtnumDocumento");
-
-            //. Consultar la informacion en BD
-            RegistroPaciente registropaciente = new RegistroPaciente();
-            TestCaldas consultaTestCaldas = new TestCaldas();
-
-            registropaciente = DaoRegistroPaciente.consultar(numDocumento);
-            request.setAttribute("registropaciente", registropaciente);
-
-            consultaTestCaldas = DaoTestCaldas.consultar(numDocumento);
-            request.setAttribute("consultarTestCaldas", consultaTestCaldas);
-            request.setAttribute("mensaje", "el paciente fue encontrado");
-            
-            System.out.println(" <*> consulta exitosa" + registropaciente.getNumDocumento());
-            
-        } catch (Exception ex) {
-            System.out.println(" <*> Error al registrar el Consecutivo " + ex);
-            ex.printStackTrace();
-            request.setAttribute("error", true);
-            request.setAttribute("mensaje", "Error al consultar Paciente");
-            
+        RegistroPaciente registropaciente = DaoRegistroPaciente.consultar(numDocumento);
+        request.setAttribute("registropaciente", registropaciente);
+        
+        TestCaldas consultaTestCaldas = DaoTestCaldas.consultar(numDocumento);
+        
+        if (consultaTestCaldas != null){
+        request.setAttribute("consultarTestCaldas", consultaTestCaldas);
+        request.setAttribute("mensaje", "El paciente fue encontrado");
+         }else{
+         request.setAttribute("error", true);
+        request.setAttribute("mensaje", "El paciente no fue encontrado");
         }
+        
+        
+    } catch (Exception ex) {
+        ex.printStackTrace();
+        request.setAttribute("error", true);
+        request.setAttribute("mensaje", "Error al consultar Paciente");
+        request.getRequestDispatcher("ruta/del/jsp").forward(request, response);
     }
+}
+
 
 // Editar informacion captada
     private void editarregistropaciente(HttpServletRequest request, HttpServletResponse response)
@@ -237,38 +239,40 @@ public class ControladorRegistroPaciente extends HttpServlet {
         }
     }
     
-    
     private void eliminarregistropaciente(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-   
-        try {
-            // Capturar la info del Formulario
-            System.out.println(" <*> Controlador eEiminar Registro Paciente metodo get " + request.getParameter("numDocumento") );
+        throws ServletException, IOException {
+    try {
+        System.out.println(" <*> Controlador Eliminar Registro Paciente metodo get " + request.getParameter("numDocumento"));
 
-            String numDocumento = request.getParameter("numDocumento");
+        String numDocumento = request.getParameter("numDocumento");
+        String mensaje = "";
+        boolean success = true;
 
-            //. Consultar la informacion en BD
-            String mensaje;
-             if (DaoRegistroPaciente.eliminar(numDocumento)) {                
-               mensaje = "El paciente fue eliminado exitosamente";
-            } else {                
-                 mensaje = "No se pudo eliminar el paciente, por favor verifica los datos ingresados";
-            }
-             if (DaoTestCaldas.eliminar(numDocumento)) {                
-               mensaje = mensaje +  ". El Test de Caldas del paciente fue eliminado exitosamente";
-            } else {                
-                 mensaje =  mensaje + ". No se pudo eliminar el Test de Caldas, por favor verifica los datos ingresados";
-            }
-             
-             response.getWriter().write(mensaje);
-            
-        } catch (Exception ex) {
-            System.out.println(" <*> Error al registrar el Consecutivo " + ex);
-            ex.printStackTrace();
-            request.setAttribute("mensaje", "Error al registrar el Consecutivo");
-            //listarUsuarios2(request, response);
+        // Primero eliminar el registro en TestCaldas
+        if (DaoTestCaldas.eliminar(numDocumento)) {
+            mensaje += "El Test de Caldas del paciente fue eliminado exitosamente. ";
+        } else {
+            mensaje += "No se pudo eliminar el Test de Caldas, por favor verifica si existia un registro. ";
+            success = false;
         }
+
+        // Luego eliminar el registro en RegistroPaciente
+        if (DaoRegistroPaciente.eliminar(numDocumento)) {
+            mensaje += "El paciente fue eliminado exitosamente.";
+        } else {
+            mensaje += "No se pudo eliminar el paciente, por favor verifica si existia un registro. ";
+            success = false;
+        }
+
+        response.setContentType("application/json");
+        response.getWriter().write("{\"success\":" + success + ", \"mensaje\":\"" + mensaje.replace("\"", "\\\"") + "\"}");
+    } catch (Exception ex) {
+        ex.printStackTrace();
+        response.setContentType("application/json");
+        response.getWriter().write("{\"success\":false, \"mensaje\":\"Error al eliminar el paciente.\"}");
     }
+}
+
     
 
     @Override

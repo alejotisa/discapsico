@@ -196,7 +196,7 @@ System.out.println("Acción recibida: " + action);
             } else {
                 
                 request.setAttribute("error", true);
-                request.setAttribute("mensaje", "No se encuentro usuario, comprobar correo y contraseña");
+                request.setAttribute("mensaje", "No se encontro usuario, comprobar correo y contraseña");
                 request.getRequestDispatcher("Vistas/iniciosesion.jsp").forward(request, response);
                 
             }
@@ -207,7 +207,7 @@ System.out.println("Acción recibida: " + action);
             
             System.out.println("error  " + ex);
             request.setAttribute("error", true);
-            request.setAttribute("mensaje", "No se encuentro usuario, comprobar correo y contraseña");            
+            request.setAttribute("mensaje", "No se encontro usuario, comprobar correo y contraseña");            
                 request.getRequestDispatcher("Vistas/iniciosesion.jsp").forward(request, response);
             
         }
