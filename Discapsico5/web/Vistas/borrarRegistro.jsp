@@ -619,6 +619,80 @@
                                                         }
                                                     }
                                                 </script>
+                                                
+                                                <script>
+                                                document.addEventListener("DOMContentLoaded", function () {
+                                                    var consultarTestCaldas = {
+                                                        pregunta1: "${consultarTestCaldas.pregunta1}",
+                                                        pregunta2: "${consultarTestCaldas.pregunta2}",
+                                                        pregunta3: "${consultarTestCaldas.pregunta3}",
+                                                        pregunta4: "${consultarTestCaldas.pregunta4}",
+                                                        pregunta5: "${consultarTestCaldas.pregunta5}",
+                                                        pregunta6: "${consultarTestCaldas.pregunta6}",
+                                                        pregunta7: "${consultarTestCaldas.pregunta7}",
+                                                        pregunta8: "${consultarTestCaldas.pregunta8}",
+                                                        pregunta9: "${consultarTestCaldas.pregunta9}",
+                                                        pregunta10: "${consultarTestCaldas.pregunta10}",
+                                                        pregunta11: "${consultarTestCaldas.pregunta11}",
+                                                        pregunta12: "${consultarTestCaldas.pregunta12}",
+                                                        pregunta13: "${consultarTestCaldas.pregunta13}",
+                                                        pregunta14: "${consultarTestCaldas.pregunta14}"
+                                                                // Agrega las demás preguntas aquí
+                                                    };
+
+                                                    for (var key in consultarTestCaldas) {
+                                                        if (consultarTestCaldas.hasOwnProperty(key)) {
+                                                            var value = consultarTestCaldas[key];
+                                                            var yesRadio = document.getElementById(key + "-si");
+                                                            var noRadio = document.getElementById(key + "-no");
+
+                                                            if (value === "1" && yesRadio) {
+                                                                yesRadio.checked = true;
+                                                            } else if (value === "2" && noRadio) {
+                                                                noRadio.checked = true;
+                                                            }
+                                                        }
+                                                    }
+                                                });
+                                            </script>
+
+                                            <script>
+                                                document.addEventListener("DOMContentLoaded", function () {
+                                                    var consultarTestCaldas = ${consultarTestCaldas};
+                                                    if (consultarTestCaldas != null) {
+                                                        var consultarTestCaldasValues = {
+                                                            pregunta1: consultarTestCaldas.pregunta1,
+                                                            pregunta2: consultarTestCaldas.pregunta2,
+                                                            pregunta3: consultarTestCaldas.pregunta3,
+                                                            pregunta4: consultarTestCaldas.pregunta4,
+                                                            pregunta5: consultarTestCaldas.pregunta5,
+                                                            pregunta6: consultarTestCaldas.pregunta6,
+                                                            pregunta7: consultarTestCaldas.pregunta7,
+                                                            pregunta8: consultarTestCaldas.pregunta8,
+                                                            pregunta9: consultarTestCaldas.pregunta9,
+                                                            pregunta10: consultarTestCaldas.pregunta10,
+                                                            pregunta11: consultarTestCaldas.pregunta11,
+                                                            pregunta12: consultarTestCaldas.pregunta12,
+                                                            pregunta13: consultarTestCaldas.pregunta13,
+                                                            pregunta14: consultarTestCaldas.pregunta14
+                                                        };
+
+                                                        for (var key in consultarTestCaldasValues) {
+                                                            if (consultarTestCaldasValues.hasOwnProperty(key)) {
+                                                                var value = consultarTestCaldasValues[key];
+                                                                var yesRadio = document.getElementById(key + "-si");
+                                                                var noRadio = document.getElementById(key + "-no");
+
+                                                                if (value == 1 && yesRadio) {
+                                                                    yesRadio.checked = true;
+                                                                } else if (value == 2 && noRadio) {
+                                                                    noRadio.checked = true;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                });
+                                            </script>
 
 
 
