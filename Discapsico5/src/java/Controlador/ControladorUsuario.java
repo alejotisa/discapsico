@@ -5,6 +5,7 @@ import Persistencia.DaoUsuarios;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -109,12 +110,14 @@ public class ControladorUsuario extends HttpServlet {
 
             //. Guardar la informacion en BD
             if (DaoUsuarios.grabar(usuarios)) {
-                request.setAttribute("mensaje", "el usuario fue registrado");
+                request.setAttribute("mensaje", "El usuario fue registrado,!inicie sesion!");
+                
             } else {
                 request.setAttribute("mensaje", "el usuario no fue registrado, validar campos ingresados");
             }
 
-            listarUsuarios2(request, response);
+          RequestDispatcher dispatcher3 = request.getRequestDispatcher("Vistas/iniciosesion.jsp");
+                dispatcher3.forward(request, response);
 
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -130,6 +133,7 @@ public class ControladorUsuario extends HttpServlet {
             request.setAttribute("listaUser2", lt);
             request.getRequestDispatcher("Vistas/ListarUsuarios.jsp").forward(request, response);
         } catch (Exception ex) {
+            System.out.println(ex);
             ex.printStackTrace();
             request.setAttribute("mensaje", "Error al listar los Consecutivos");
             request.getRequestDispatcher("Vistas/ListarUsuarios.jsp").forward(request, response);

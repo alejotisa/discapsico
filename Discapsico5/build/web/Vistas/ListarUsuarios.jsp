@@ -39,51 +39,29 @@
     </head>
     <body>  
 
-        <!--Barra de Navegacion -->
-        <nav class="navbar  navbar-expand-md navbar-dark bg-success border-3 fixed-top border-bottom " id="menu">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#"></a>
-                <img src="./Vistas/discapsico.jpg" alt="logo"  style="float: left; width: 100px;" />
-                <button 
-                    class="navbar-toggler" type="button" data-bs-toggle="collapse" 
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse  " id="navbarSupportedContent">
+       <!-- Barra de Navegacion -->
+<nav class="navbar navbar-expand-md navbar-dark bg-primary border-3 fixed-top border-bottom">
+    <div class="container-fluid">
+        <a href="/Vistas/home.jsp" class="navbar-brand fs-4 nav-link-white font-weight-bold ms-4 me-auto">DISCAPSICO</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Otros elementos de la barra de navegación -->
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/Vistas/home.jsp">
+                        <span class="btn btn-outline-light">
+                            <i class="bi bi-arrow-left-square-fill text-dark"></i> Home
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Barra de Navegacion -->
 
-
-                    <ul class="navbar-nav ml-3 me-auto">  
-                        <form class="navbar-nav ms-auto ml-auto" role="search">
-                            <input class="form-control " type="search" name="txtbuscar" placeholder="Buscar Empresa, Nombres" aria-label="Buscar">
-                            <button  type="submit" name="accion" value="buscar" class="btn btn-primary ml-1">Buscar</button>
-                        </form>
-
-                    </ul>
-
-                    <ul class="navbar-nav mb-3 mb-lg-0 float-start ">   
-
-                        <li class="nav-item ">
-                            <a class="nav-link active my-menu-item" aria-current="page" href="./index.jsp"><b>
-                                    <span style="margin-left: 10px; border:none" class=" btn btn-outline-light ">
-                                        <i class="bi bi-arrow-left-square-fill text-warning"></i> <b> Inicio </b>
-                                    </span>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link active" aria-current="page" href="ControladorClientes?accion=add">
-                                <span  style="margin-left: 10px; border:none" class=" btn btn-outline-light ">
-                                    <i class="bi bi-plus-circle"></i> <b>Añadir</b> </span>
-                            </a>
-                        </li>
-
-                    </ul>
-
-
-                </div>
-            </div>
-        </nav>
-        <!--Barra de Navegacion -->
         <div class="col-11">
 
             <h1 class="text-primary elegant-font"><b>LISTA USUARIOS</b></h1> 
@@ -143,7 +121,7 @@
                 <div class="form-group text-right">
                     <a href="ControladorUsuario?accion=listar" class="btn btn-primary"> 
                         <i class="fas fa-list"></i> Listar</a>
-                    <a href="./index.jsp" class="btn btn-success">
+                    <a href="/Vistas/home.jsp" class="btn btn-success">
                         <i class="bi bi-arrow-left-square-fill text-warning"></i> Inicio</a>
                 </div>
                 <h1>${mensaje}</h1>

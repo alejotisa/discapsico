@@ -41,6 +41,7 @@ public class DaoUsuarios {
                 return false;
             }
         } catch (Exception e) {
+            System.out.println("error en  dao " + e );
         }
         return false;
     }
@@ -65,10 +66,10 @@ public class DaoUsuarios {
                     lista.add(usuarios);
                 }
             } else {
-                System.err.println("La conexión es nula");
+                System.out.println("La conexión es nula");
             }
         } catch (SQLException e) {
-            System.err.println("Error al ejecutar la consulta: " + e.getMessage());
+            System.out.println("Error al ejecutar la consulta: " + e.getMessage());
         } finally {
             cerrarRecursos();
         }
