@@ -18,15 +18,7 @@
                     <h1 class="float-md-start mb-0">DISCAPSICO</h1>
                     <nav class="nav nav-masthead justify-content-center float-md-end">
                         <a class="nav-link fw-bold py-1 px-0 active" aria-current="page"  href="Vistas/registrarme.jsp">REGISTRO</a>
-                    </nav>
-                    <nav class="nav nav-masthead justify-content-center float-md-end">
-                        <a class="nav-link fw-bold py-1 me-4   px-0 active "  aria-current="page" style="color: blue" 
-                           href="ControladorUsuario?accion=listar"">LISTA USUARIOS</a>
-                    </nav>
-                    <nav class="nav nav-masthead justify-content-center float-md-end">
-                        <a class="nav-link fw-bold py-1 me-4   px-0 active "  aria-current="page" style="color: blue" 
-                           href="ControladorUsuario?accion=listar2"">LISTA USUARIOS2</a>
-                    </nav>
+                
                 </div>
             </header>
 

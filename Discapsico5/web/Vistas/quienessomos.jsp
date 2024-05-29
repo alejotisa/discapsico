@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
-
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>DISCAPSICO - Sistema de Gestión de Información sobre Discapacidad Psicosocial en Bogotá</title>
+        <title>Bootstrap demo</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KyZXEAg3QhqLMpG8r+Knujsl5+5hb7MI5p5UnJ5+G5R5eD6IVNuXMIB4UJ9xykOkxrfmO4ExkD5zz9T8RbhOwg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <style>
             .header-bg {
                 background-color: #008080; /* Azul claro */
@@ -15,10 +13,16 @@
             }
 
             .header-content {
-                color: black; /* Cambiamos el color del texto a negro para mejor contraste */
-                background-color:  #008080; /* Color hueso más claro */
+                color: white; /* Cambiamos el color del texto a blanco */
+                background-color: #008080; /* Color hueso más claro */
                 padding: 20px;
                 border-radius: 10px; /* Redondear esquinas */
+            }
+
+            .discapsico-bg {
+                background-color: #40E0D0; /* Turquesa oscuro */
+                padding: 10px 20px;
+                border-radius: 10px;
             }
 
             .footer-contacts {
@@ -53,64 +57,53 @@
                 align-items: center;
                 font-size: 24px;
             }
+
             .nav-link-white {
                 color: white !important;
             }
-             .nav-link-green {
-            color: green !important; /* Cambiamos el color del texto a verde */
-        }
+            .nav-link-green {
+                color: green !important; /* Cambiamos el color del texto a verde */
+            }
 
             .social-icons a:hover {
                 color: #007BFF;
             }
         </style>
     </head>
-
     <body class="text-bg-light">
         <main>
-            <div class="container">
-                <header class="d-flex flex-column justify-content-center py-3 mb-4 border-bottom header-bg">
+            <div class="container-fluid">
+                <header class="d-flex flex-column justify-content-center py-3 mb-4 header-bg">
                     <div class="header-content d-flex flex-wrap justify-content-between align-items-center">
                         <a href="/Vistas/home.jsp" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                            <span class="fs-4 nav-link-white">DISCAPSICO</span>
+                            <div class="discapsico-bg">
+                                <span class="fs-4">DISCAPSICO</span>
+                            </div>
                         </a>
                         <ul class="nav nav-pills">
                             <li class="nav-item"><a href="/Vistas/home.jsp" class="nav-link nav-link-white">Home</a></li>
                             <li class="nav-item"><a href="/Vistas/registropaciente.jsp" class="nav-link nav-link-white">Crear Registro</a></li>
                             <li class="nav-item"><a href="/Vistas/consultarRegistro.jsp" class="nav-link nav-link-white">Consultar</a></li>
-                            <li class="nav-item"><a href="/Vistas/quienessomos.jsp" class="nav-link nav-link-white">¿Quienes Somos?</a></li>
-                            <li class="nav-item"><a href="/ControladorUsuario?accion=listar2" class="nav-link nav-link-white">Lista Usuarios</a></li>
                             <li class="nav-item"><a href="/Vistas/cerrarSesion.jsp" class="nav-link nav-link-white">Cerrar Sesión</a></li>
                         </ul>
                     </div>
                 </header>
-                <div class="row align-items-md-stretch mt-5">
-                    <div class="col-md-6 mt-2">
-                        <div class="h-100 p-5 text-bg-success rounded-3">
-                            <h2>Gestiona</h2>
-                            <p>Bienvenido usuario <span id="mensaje-bienvenida" style="font-size: 24px; font-weight: bold; color: blue;"></span>! Aquí puedes gestionar ingreso de información. Tu contribución es fundamental para brindar un mejor servicio. ¡Gracias por ser parte de nuestro equipo y por tu colaboración!</p>
-                            <div class="d-grid gap-2">
-                                <a href="/Vistas/registropaciente.jsp" class="btn btn-outline-light btn-lg">Crear Registro</a>
-                                <a href="/Vistas/consultarRegistro.jsp" class="btn btn-outline-light btn-lg">Consultar Registro</a>
-                                <a href="/Vistas/actualizaDatosPaciente.jsp" class="btn btn-outline-light btn-lg">Editar Registro</a>
-                                <a href="/Vistas/borrarRegistro.jsp" class="btn btn-outline-light btn-lg">Borrar Registro</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mt-2">
-                        <div class="h-100 p-5 text-bg-primary rounded-3">
-                            <h2>Reportes</h2>
-                            <p>Aquí puedes gestionar los reportes. Tu contribución es fundamental para brindar un mejor servicio. ¡Gracias por ser parte de nuestro equipo y por tu colaboración!</p>
-                            <div class="d-grid gap-2">
-                                <a href="/Vistas/resumenInforrmes.jsp" class="btn btn-outline-light btn-lg">Resumen</a>
-                                <a href="/Vistas/exportar.jsp" class="btn btn-outline-light btn-lg">Exportar</a>
-                                <a href="/Vistas/puntajeTestCaldas.jsp" class="btn btn-outline-light btn-lg">Puntaje Test Caldas</a>
-                            </div>
-                        </div>
-                    </div>
+            <div class="content">
+                <h1 class="text-center my-4">¿Quienes Somos?</h1>
+                <div class="mb-5">
+                    <h2>DISCAPSICO</h2>
+                    <p>DISCAPSICO es una aplicación web desarrollada con el objetivo de solucionar el manejo de información creando una herramienta eficiente y accesible para el registro, seguimiento de pacientes relacionados con la discapacidad psicosocial en Bogotá. Enfocada principalmente para ingreso de la información de los pacientes y los test de caldas de discapacidad psicosocial, proporcionando una solución para digitalización de la información.</p>
                 </div>
-        </main>
-        <footer class="pt-3 mt-4 text-body-secondary border-top">
+                <div class="mb-5">
+                    <h2>Secretaría de Salud de Bogotá</h2>
+                    <p>La Secretaría Distrital de Salud de Bogotá es la entidad encargada de coordinar, gestionar y dirigir los servicios de salud en la ciudad. Su objetivo es garantizar el derecho a la salud de todos los ciudadanos, a través de la promoción, prevención, atención y rehabilitación en salud. Además, trabaja en la formulación de políticas, planes y programas que permitan mejorar la calidad de vida de la población bogotana.</p>
+                </div>
+                <div class="mb-5">
+                    <h2>Información de Vigilancia en Salud Pública??</h2>
+                    <p>La vigilancia en salud pública es fundamental para la detección temprana y el control de enfermedades. Consiste en la recolección, análisis e interpretación de datos de salud para planificar, implementar y evaluar prácticas de salud pública. La vigilancia permite identificar brotes de enfermedades, monitorizar la salud de la población y evaluar la efectividad de intervenciones en salud. Es crucial para prevenir epidemias, proteger la salud de la comunidad y mejorar la respuesta a emergencias sanitarias.</p>
+                </div>
+            </div>
+            <footer class="pt-3 mt-4 text-body-secondary border-top">
                  <  <div class="container top text-center d-flex justify-content-center align-items-center">
                        <ul class="nav nav-pills">
                         <li class="nav-item"><a href="/Vistas/home.jsp" class="nav-link nav-link-green">Home</a></li>
@@ -165,7 +158,7 @@
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript">
         // Obtener el nombre del usuario de la sesión
-        var nombreUsuario = '<%= session.getAttribute("usuarioName")%>';
+        var nombreUsuario = '<%= session.getAttribute("usuarioName") %>';
 
         // Comprobar si el nombre del usuario existe
         if (nombreUsuario) {
@@ -179,5 +172,4 @@
         }
     </script>
 </body>
-
 </html>

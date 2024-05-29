@@ -19,7 +19,7 @@
 
 
         <!-- Link to Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 
         <!-- Link to Font Awesome CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
@@ -29,53 +29,30 @@
 
     </head>
     <body>  
-
-        <!--Barra de Navegacion -->
-        <nav class="navbar  navbar-expand-md navbar-dark bg-primary border-3 fixed-top border-bottom " id="menu">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#"></a>
-                <img src="./Vistas/alcaldiac_logo.jpg" alt="Logo" style="float: left; width: 90px;" />
-                <button 
-
-                    class="navbar-toggler" type="button" data-bs-toggle="collapse" 
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse  " id="navbarSupportedContent">
-
-
-                    <ul class="navbar-nav ml-3 me-auto">  
-                        <form class="navbar-nav ms-auto ml-auto" role="search">
-                            <input class="form-control " type="search" name="txtbuscar" placeholder="Buscar Auxiliar, CC" aria-label="Buscar">
-                            <button  type="submit" name="accion" value="buscar" class="btn btn-warning ml-1">Buscar</button>
-                        </form>
-
-                    </ul>
-
-                    <ul class="navbar-nav mb-3 mb-lg-0 float-start ">   
-
-                        <li class="nav-item ">
-                            <a class="nav-link active my-menu-item" aria-current="page" href="./index.jsp"><b>
-                                    <span  style="margin-left: 10px; border:none" class="btn btn-outline-light">
-                                        <i class="bi bi-arrow-left-square-fill text-dark"></i> <b> Inicio </b>
-                                    </span>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link active" aria-current="page" href="##">
-                                <span  style="margin-left: 10px; border:none" class="btn btn-outline-light">
-                                    <i class="bi bi-plus-circle"></i> <b> Añadir </b> </span>
-                            </a>
-                        </li>
-
-                    </ul>
+<!-- Barra de Navegacion -->
+<nav class="navbar navbar-expand-md navbar-dark bg-primary border-3 fixed-top border-bottom">
+    <div class="container-fluid">
+        <a href="/Vistas/home.jsp" class="navbar-brand fs-4 nav-link-white font-weight-bold ms-4 me-auto">DISCAPSICO</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Otros elementos de la barra de navegación -->
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/Vistas/home.jsp">
+                        <span class="btn btn-outline-light">
+                            <i class="bi bi-arrow-left-square-fill text-dark"></i> Home
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Barra de Navegacion -->
 
 
-                </div>
-            </div>
-        </nav>
-        <!--Barra de Navegacion -->
 
         <div class="row ">            
             <hr>
@@ -226,13 +203,7 @@
 
                 </div>
             </div>   
-            <div class="form-group text-right">
-                <a href="ControladorUsuarios?accion=listar" class="btn btn-primary"> 
-                    <i class="fas fa-list"></i> Listar</a>
-                <a href="./index3.jsp" class="btn btn-warning">
-                    <i class="bi bi-arrow-left-square-fill text-dark"></i> Inicio</a>
-            </div>
-            <h1>${mensaje}</h1>
+          
         </div>
 
 

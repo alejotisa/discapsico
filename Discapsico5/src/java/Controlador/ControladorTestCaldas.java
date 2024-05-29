@@ -116,55 +116,51 @@ public class ControladorTestCaldas extends HttpServlet {
     
             TestCaldas testcaldas = new TestCaldas(); 
         HttpSession session = request.getSession();
-            RegistroPaciente paciente= (RegistroPaciente) session.getAttribute("paciente");
-            System.out.println("asdf "  + paciente.getNumDocumento()+ " -z  " + paciente.getPrimerNombre());
-          
-            
-           testcaldas.setNumDocumento( paciente.getNumDocumento());
-       //    testcaldas.setFechaCaracterizacion(fechaCaracterizacion);
-           testcaldas.setPregunta1(pregunta1);
-           testcaldas.setPregunta2(pregunta2);
-           testcaldas.setPregunta3(pregunta3);
-           testcaldas.setPregunta4(pregunta4);
-           testcaldas.setPregunta5(pregunta5);
-           testcaldas.setPregunta6(pregunta6);
-           testcaldas.setPregunta7(pregunta7);
-           testcaldas.setPregunta8(pregunta8);
-           testcaldas.setPregunta9(pregunta9);
-           testcaldas.setPregunta10(pregunta10);
-           testcaldas.setPregunta11(pregunta11);
-           testcaldas.setPregunta12(pregunta12);
-           testcaldas.setPregunta13(pregunta13);
-           testcaldas.setPregunta14(pregunta14);
-           testcaldas.setTotalAT(totalAT);
-           testcaldas.setTotalDPE(totalDPE);
-           testcaldas.setTotalDS(totalDS);
-           testcaldas.setSumatoriaTotal(sumatoriaTotal);
-           
-           
-  //. Guardar la informacion en BD
-            if (DaoTestCaldas.grabar(testcaldas)) {
-                System.out.println(" <*> el paciente fue registrado  11");
-                request.setAttribute("mensaje", "test de caldas registrado!, por favor vuelva al home");
-                request.getRequestDispatcher("Vistas/home.jsp").forward(request, response);
-                
-                
-            } else {
-                 System.out.println(" <*> el paciente no fue registrado  22");
-                 request.setAttribute("error", true);
-                request.setAttribute("mensaje", "el test no fue registrado, validar campos ingresados");                
-                request.getRequestDispatcher("Vistas/testcaldas.jsp").forward(request, response);
-            }
-                
-      } catch (Exception ex) {
-            System.out.println(" <*> Error al registrar el Consecutivo " + ex);
-            ex.printStackTrace();            
-            request.setAttribute("error", true);
-                request.setAttribute("mensaje", "el test no fue registrado, error Base de datos");                
-                request.getRequestDispatcher("Vistas/testcaldas.jsp").forward(request, response);
-          
+            RegistroPaciente paciente = (RegistroPaciente) session.getAttribute("paciente");
+        System.out.println("asdf " + paciente.getNumDocumento() + " -z  " + paciente.getPrimerNombre());
+
+        testcaldas.setNumDocumento(paciente.getNumDocumento());
+        testcaldas.setPregunta1(pregunta1);
+        testcaldas.setPregunta2(pregunta2);
+        testcaldas.setPregunta3(pregunta3);
+        testcaldas.setPregunta4(pregunta4);
+        testcaldas.setPregunta5(pregunta5);
+        testcaldas.setPregunta6(pregunta6);
+        testcaldas.setPregunta7(pregunta7);
+        testcaldas.setPregunta8(pregunta8);
+        testcaldas.setPregunta9(pregunta9);
+        testcaldas.setPregunta10(pregunta10);
+        testcaldas.setPregunta11(pregunta11);
+        testcaldas.setPregunta12(pregunta12);
+        testcaldas.setPregunta13(pregunta13);
+        testcaldas.setPregunta14(pregunta14);
+        testcaldas.setTotalAT(totalAT);
+        testcaldas.setTotalDPE(totalDPE);
+
+        testcaldas.setTotalDS(totalDS);
+        testcaldas.setSumatoriaTotal(sumatoriaTotal);
+
+        // Guardar la informacion en BD
+        if (DaoTestCaldas.grabar(testcaldas)) {
+            System.out.println(" <*> el paciente fue registrado  11");
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write("{\"status\":\"success\",\"message\":\"test de caldas para el usuario "+ paciente.getNumDocumento()+" fue registrado!, por favor vuelva al home\"}");
+        } else {
+            System.out.println(" <*> el paciente no fue registrado  22");
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write("{\"status\":\"error\",\"message\":\"el test no fue registrado, validar campos ingresados\"}");
         }
+    } catch (Exception ex) {
+        System.out.println(" <*> Error al registrar el Consecutivo " + ex);
+        ex.printStackTrace();
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().write("{\"status\":\"error\",\"message\":\"el test no fue registrado, error Base de datos\"}");
     }
 
 }
 
+
+}

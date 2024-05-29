@@ -81,7 +81,7 @@ public class DaoEntidad {
     public static String obtenerNombreEntidad(int id) {
         try {
             con = dao.Conectar();
-            String sql = "SELECT nombreEntidad FROM entidad WHERE IdEntidad?";
+            String sql = "SELECT nombreEntidad FROM entidad WHERE IdEntidad = ?";
             ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             rs = ps.executeQuery();
